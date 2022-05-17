@@ -51,10 +51,10 @@ const postsSlices = createSlice({
 						userId,
 						reactions: {
 							thumpsUp: 0,
-							wow: 0,
+							hooray: 0,
 							heart: 0,
 							rocket: 0,
-							coffee: 0,
+							eyes: 0,
 						},
 					},
 				};

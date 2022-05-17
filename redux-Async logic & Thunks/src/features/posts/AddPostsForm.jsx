@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { postAdded } from './postSlice';
+import { addNewPost } from './postSlice';
 import { selectAllUsers } from '../users/usersSlice';
 
 const AddPostsForm = () => {
@@ -10,6 +10,7 @@ const AddPostsForm = () => {
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
 	const [userId, setUserId] = useState('');
+	const [addRequestStatus, setAddRequestStatus] = useState('idle');
 
 	const users = useSelector(selectAllUsers);
 
@@ -19,15 +20,26 @@ const AddPostsForm = () => {
 
 	const onAuthChange = (e) => setUserId(e.target.value);
 
+	const canSave =
+		[title, content, userId].every(Boolean) && addRequestStatus === 'idle'; // Check if the form is valid with a boolean
+
 	const onPostSave = () => {
-		if (title && content) {
-			dispatch(postAdded(title, content, userId));
-			setTitle('');
-			setContent('');
+		if (canSave) {
+			try {
+				setAddRequestStatus('pending');
+
+				dispatch(addNewPost({ title, body: content, userId })).unwrap(); // unwrap return a new promise that resolves to the result of the thunk
+
+				setTitle('');
+				setContent('');
+				setUserId('');
+			} catch (error) {
+				console.error('Failed to save the post', error);
+			} finally {
+				setAddRequestStatus('idle');
+			}
 		}
 	};
-
-	const canSave = Boolean(title) && Boolean(content) && Boolean(userId); // Check if the form is valid with a boolean
 
 	const usersOptions = users.map((user) => (
 		<option key={user.id} value={user.id}>
@@ -67,6 +79,6 @@ const AddPostsForm = () => {
 			</form>
 		</section>
 	);
-};
+};;;
  
 export default AddPostsForm
