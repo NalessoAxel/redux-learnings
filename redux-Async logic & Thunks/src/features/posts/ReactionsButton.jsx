@@ -25,7 +25,7 @@ const ReactionsButton = ({ post }) => {
 				}
 			>
 				{emoji}
-				{post.reactions[name]}
+				<span className="emojiName">{post.reactions[name]}</span>
 			</button>
 		);
 	});

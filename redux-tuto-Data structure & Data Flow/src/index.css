@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+section {
+  margin: 100px;
+  max-width: 600px;
+  padding: 1.25rem;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+article {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 1.25rem;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  
+}
+
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  height: 200px;
+}
+
+button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-size: 12px;
+  
+}
+.date {
+  font-size: 12px;
+  
+}
+
+.reactionButton {
+  border: none;
+  border-radius: 4px;
+  margin: 0 0.25em 0 0;
+  font-size: 1rem;
+}
+
+.emojiName {
+  font-size: 1rem;
+  margin-left: 10px;
+}
